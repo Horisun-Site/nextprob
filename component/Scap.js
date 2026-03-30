@@ -20,7 +20,7 @@ const Scap = () => {
     e.preventDefault();
     setStatus("Sending...");
 
-    const res = await fetch("/api/contact", {
+    const res = await fetch(`${window.location.origin}/api/contact`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
@@ -36,7 +36,6 @@ const Scap = () => {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex justify-center items-center px-4 overflow-hidden">
-
       {/* FLOATING PARTICLES */}
       <motion.div
         className="absolute w-2 h-2 bg-purple-500 rounded-full"
