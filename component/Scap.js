@@ -18,9 +18,10 @@ const Scap = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    alert("Button Clicked!"); // Add this temporarily
     setStatus("Sending...");
 
-    const res = await fetch(`${window.location.origin}/api/contact`, {
+    const res = await fetch("/api/contact/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
