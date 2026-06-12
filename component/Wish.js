@@ -4,55 +4,64 @@ const projects = [
   {
     id: 1,
     name: "Business firm site",
-    image: "https://cdn.pixabay.com/photo/2017/01/14/10/56/people-1979261_1280.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2017/01/14/10/56/people-1979261_1280.jpg",
     link: "https://wellow.vercel.app/",
   },
   {
     id: 2,
     name: "E-commerce App",
-    image: "https://cdn.pixabay.com/photo/2016/06/19/08/58/shop-1466324_1280.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2016/06/19/08/58/shop-1466324_1280.jpg",
     link: "https://timi-shop-x15j.vercel.app/",
   },
   {
     id: 3,
     name: "fun and cooking site",
-    image: "https://cdn.pixabay.com/photo/2025/08/08/07/43/cooking-9762156_1280.png",
+    image:
+      "https://cdn.pixabay.com/photo/2025/08/08/07/43/cooking-9762156_1280.png",
     link: "https://fun-site-three.vercel.app/",
   },
   {
     id: 4,
     name: "Note-Pad App",
-    image: "https://cdn.pixabay.com/photo/2018/04/07/08/28/notepad-3297994_1280.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2018/04/07/08/28/notepad-3297994_1280.jpg",
     link: "https://timpad.vercel.app/",
   },
   {
     id: 5,
     name: "mini-blog site",
-    image: "https://cdn.pixabay.com/photo/2015/03/22/15/26/blog-684748_1280.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2015/03/22/15/26/blog-684748_1280.jpg",
     link: "https://timilehin-blog-dcjb.vercel.app/",
   },
   {
     id: 6,
     name: "Pet Store site",
-    image: "https://cdn.pixabay.com/photo/2022/03/09/18/09/dog-7058440_960_720.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2022/03/09/18/09/dog-7058440_960_720.jpg",
     link: "https://web1-alpha-drab.vercel.app/",
   },
   {
     id: 7,
     name: "auto mobile site",
-    image: "https://cdn.pixabay.com/photo/2019/10/29/12/21/motor-4586782_1280.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2019/10/29/12/21/motor-4586782_1280.jpg",
     link: "https://chart-kappa-orcin.vercel.app/",
   },
   {
     id: 8,
     name: "Login and Register",
-    image: "https://cdn.pixabay.com/photo/2022/08/24/20/54/subscribe-7408764_1280.png",
+    image:
+      "https://cdn.pixabay.com/photo/2022/08/24/20/54/subscribe-7408764_1280.png",
     link: "https://todo-zeta-dusky-59.vercel.app/",
   },
   {
     id: 9,
     name: "Business firm site",
-    image: "https://cdn.pixabay.com/photo/2017/01/14/10/56/people-1979261_1280.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2017/01/14/10/56/people-1979261_1280.jpg",
     link: "https://wellow.vercel.app/",
   },
 ];
@@ -73,6 +82,19 @@ const Wish = () => {
           >
             <a href={project.link} target="_blank" rel="noopener noreferrer">
               <div className="relative group">
+                <div
+                  className="
+                    absolute -top-3 -right-3 z-20
+                    bg-red-500 text-white
+                    px-3 py-1 rounded-full
+                    text-xs font-bold
+                    shadow-lg
+                    animate-bounce
+                    border-2 border-white
+                    "
+                >
+                  🚀 Click Me
+                </div>
                 <img
                   src={project.image}
                   alt={project.name}
