@@ -73,21 +73,20 @@ const Wish = () => {
           >
             <a href={project.link} target="_blank" rel="noopener noreferrer">
               <div className="relative group">
-                
-                
+
                 <div
-    className="
-      absolute -top-3 -right-3 z-20
-      bg-red-500 text-white
-      px-3 py-1 rounded-full
-      text-xs font-bold
-      shadow-lg
-      animate-bounce
-      border-2 border-white
-    "
-  >
-    🚀 Click Me
-  </div>
+                  className="
+                    absolute -top-3 -right-3 z-20
+                    bg-red-500 text-white
+                    px-3 py-1 rounded-full
+                    text-xs font-bold
+                    shadow-lg
+                    animate-bounce
+                    border-2 border-white
+                  "
+                >
+                  🚀 Click Me
+                </div>
                 <img
                   src={project.image}
                   alt={project.name}
