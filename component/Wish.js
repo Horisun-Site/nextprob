@@ -91,7 +91,7 @@ const Wish = () => {
                     shadow-lg
                     animate-bounce
                     border-2 border-white
-                    "
+                  "
                 >
                   🚀 Click Me
                 </div>
