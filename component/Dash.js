@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Dash = () => {
   // Change this URL to your own image anytime
-  const profileImage = "https://known-red-2g2ybo6f4k.edgeone.app/best.png";
+  const profileImage = "https://i.ibb.co/tT4cPzvR/refreshed.png";
 
   return (
     <section className="w-full min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 bg-gradient-to-br from-black to-[#170033] text-white relative">
