@@ -18,7 +18,7 @@ const Scap = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Button Clicked!"); // Add this temporarily
+    // alert("Button Clicked!"); // Add this temporarily
     setStatus("Sending...");
 
     const res = await fetch("/api/contact/", {
@@ -27,11 +27,14 @@ const Scap = () => {
       body: JSON.stringify(form),
     });
 
+    const data = await res.json();
+
     if (res.ok) {
       setStatus("Message Sent Successfully!");
       setForm({ name: "", email: "", message: "" });
     } else {
-      setStatus("Failed to send message.");
+      setStatus(`Error: ${data.error}`);
+      console.error(data.error);
     }
   };
 
