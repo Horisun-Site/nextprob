@@ -42,10 +42,13 @@ const Scap = () => {
     } else {
       setStatus(`Error: ${data.error}`);
     }
-  } catch (err) {
-    console.error(err);
-    setStatus("Network Error");
-  }
+ } catch (err) {
+  console.error("FETCH ERROR:", err);
+
+  setStatus(
+    `Network Error: ${err.message || "Unknown error"}`
+  );
+}
 };
 
   return (
