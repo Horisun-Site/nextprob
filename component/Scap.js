@@ -17,39 +17,45 @@ const Scap = () => {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    setStatus("Sending...");
+    try {
+      setStatus("Sending...");
 
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
-
-    const data = await res.json();
-
-    if (res.ok) {
-      setStatus("Message Sent Successfully!");
-      setForm({
-        name: "",
-        email: "",
-        message: "",
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
       });
-    } else {
-      setStatus(`Error: ${data.error}`);
-    }
- } catch (err) {
-  console.error("FETCH ERROR:", err);
 
-  setStatus(
-    `Network Error: ${err.message || "Unknown error"}`
-  );
-}
-};
+      const text = await res.text();
+
+      let data;
+
+      try {
+        data = JSON.parse(text);
+      } catch {
+        throw new Error(text.slice(0, 100));
+      }
+
+      if (res.ok) {
+        setStatus("Message Sent Successfully!");
+        setForm({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        setStatus(`Error: ${data.error}`);
+      }
+    } catch (err) {
+      console.error("FETCH ERROR:", err);
+
+      setStatus(`Network Error: ${err.message || "Unknown error"}`);
+    }
+  };
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex justify-center items-center px-4 overflow-hidden">
