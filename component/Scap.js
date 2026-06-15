@@ -17,13 +17,16 @@ const Scap = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    // alert("Button Clicked!"); // Add this temporarily
+  e.preventDefault();
+
+  try {
     setStatus("Sending...");
 
-    const res = await fetch("/api/contact/", {
+    const res = await fetch("/api/contact", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(form),
     });
 
@@ -31,12 +34,19 @@ const Scap = () => {
 
     if (res.ok) {
       setStatus("Message Sent Successfully!");
-      setForm({ name: "", email: "", message: "" });
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
     } else {
       setStatus(`Error: ${data.error}`);
-      console.error(data.error);
     }
-  };
+  } catch (err) {
+    console.error(err);
+    setStatus("Network Error");
+  }
+};
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex justify-center items-center px-4 overflow-hidden">
