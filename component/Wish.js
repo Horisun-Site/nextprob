@@ -35,19 +35,19 @@ const projects = [
     id: 6,
     name: "Pet Store site",
     image: "https://cdn.pixabay.com/photo/2022/03/09/18/09/dog-7058440_960_720.jpg",
-    link: "https://web1-alpha-drab.vercel.app/",
+    link: "https://wellow.vercel.app/",
   },
   {
     id: 7,
     name: "auto mobile site",
     image: "https://cdn.pixabay.com/photo/2019/10/29/12/21/motor-4586782_1280.jpg",
-    link: "https://chart-kappa-orcin.vercel.app/",
+    link: "https://wellow.vercel.app/",
   },
   {
     id: 8,
     name: "Login and Register",
     image: "https://cdn.pixabay.com/photo/2022/08/24/20/54/subscribe-7408764_1280.png",
-    link: "https://todo-zeta-dusky-59.vercel.app/",
+    link: "https://wellow.vercel.app/",
   },
   {
     id: 9,
