@@ -33,9 +33,9 @@ const projects = [
   },
   {
     id: 6,
-    name: "Business firm site",
-    image: "https://cdn.pixabay.com/photo/2022/03/09/18/09/dog-7058440_960_720.jpg",
-    link: "https://wellow.vercel.app/",
+    name: "Phone Repair store",
+    image: "https://www.image2url.com/r2/default/images/1785574300556-f18e770a-6387-4b43-99a5-0562040130a1.jpg",
+    link: "https://hykinsrepair.vercel.app/",
   },
   {
     id: 7,
