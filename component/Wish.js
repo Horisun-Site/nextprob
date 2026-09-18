@@ -3,9 +3,9 @@ import React from "react";
 const projects = [
   {
     id: 1,
-    name: "Business firm site",
-    image: "https://cdn.pixabay.com/photo/2017/01/14/10/56/people-1979261_1280.jpg",
-    link: "https://wellow.vercel.app/",
+    name: "DashBoard App",
+    image: "https://cdn.pixabay.com/photo/2013/10/25/17/26/tree-200795_1280.jpg",
+    link: "https://tema-parfait.vercel.app/admin/dashboard",
   },
   {
     id: 2,
@@ -15,33 +15,33 @@ const projects = [
   },
   {
     id: 3,
-    name: "fun and cooking site",
-    image: "https://cdn.pixabay.com/photo/2025/08/08/07/43/cooking-9762156_1280.png",
-    link: "https://fun-site-three.vercel.app/",
+    name: "Business firm site",
+    image: "https://cdn.pixabay.com/photo/2017/01/14/10/56/people-1979261_1280.jpg",
+    link: "https://wellow.vercel.app/",
   },
   {
     id: 4,
-    name: "Note-Pad App",
-    image: "https://cdn.pixabay.com/photo/2018/04/07/08/28/notepad-3297994_1280.jpg",
-    link: "https://timpad.vercel.app/",
-  },
-  {
-    id: 5,
     name: "mini-blog site",
     image: "https://cdn.pixabay.com/photo/2015/03/22/15/26/blog-684748_1280.jpg",
     link: "https://timilehin-blog-dcjb.vercel.app/",
   },
   {
-    id: 6,
+    id: 5,
     name: "Phone Repair store",
     image: "https://www.image2url.com/r2/default/images/1785574300556-f18e770a-6387-4b43-99a5-0562040130a1.jpg",
     link: "https://hykinsrepair.vercel.app/",
   },
   {
+    id: 6,
+    name: "fun and cooking site",
+    image: "https://cdn.pixabay.com/photo/2025/08/08/07/43/cooking-9762156_1280.png",
+    link: "https://fun-site-three.vercel.app/",
+  },
+  {
     id: 7,
-    name: "Business firm site",
-    image: "https://cdn.pixabay.com/photo/2019/10/29/12/21/motor-4586782_1280.jpg",
-    link: "https://wellow.vercel.app/",
+    name: "Note-Pad App",
+    image: "https://cdn.pixabay.com/photo/2018/04/07/08/28/notepad-3297994_1280.jpg",
+    link: "https://timpad.vercel.app/",
   },
   {
     id: 8,
