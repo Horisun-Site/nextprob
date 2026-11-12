@@ -19,25 +19,82 @@ const skills = [
 
 const Flat = () => {
   return (
-    <div className="w-full min-h-screen bg-white flex justify-center items-center p-6">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-gray-300 p-10 shadow-xl rounded-2xl border border-gray-200"
-      >
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ scale: 1.08, rotate: 1.5, y: -6, boxShadow: "0px 12px 30px rgba(0,0,0,0.15)" }}
-            transition={{ type: "spring", stiffness: 180, damping: 12 }}
-            className="w-full max-w-xs sm:max-w-[350px] lg:max-w-[450px] bg-white rounded-2xl p-6 shadow-md flex flex-col justify-center items-center border border-gray-100 mx-auto"
-          >
-            <img src={skill.img} alt={skill.name} className="w-16 h-16 mb-3" />
-            <p className="text-gray-700 font-semibold text-lg text-center">{skill.name}</p>
-          </motion.div>
-        ))}
-      </motion.div>
+    <div className="relative w-full overflow-hidden border-b border-cyan-400/10 px-5 py-16 sm:px-8 md:px-20 md:py-20">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.07),transparent_38%)]" />
+
+      <div className="relative mx-auto max-w-7xl">
+        <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.26em] text-cyan-400/80">
+              {"// 04 — stack.json"}
+            </p>
+            <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+              My <span className="gradient-text">Skills</span>
+            </h1>
+            <p className="mt-4 font-mono text-sm text-slate-400">
+              <span className="text-emerald-400">$</span> ls ./skills
+              <span className="animate-blink ml-1 text-cyan-400">▌</span>
+            </p>
+          </div>
+          <div className="rounded-lg border border-white/[0.08] bg-[#070c17]/70 px-4 py-3 font-mono text-[10px] text-slate-500">
+            <p>
+              <span className="text-cyan-400">{skills.length}</span> modules
+              loaded
+            </p>
+            <p className="mt-1">
+              <span className="text-emerald-400">✓</span> production ready
+            </p>
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-7"
+        >
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.06, rotate: 1, y: -6, boxShadow: "0px 18px 40px rgba(34,211,238,0.10)" }}
+              transition={{ type: "spring", stiffness: 180, damping: 12 }}
+              className="code-panel group flex w-full flex-col overflow-hidden rounded-2xl"
+            >
+              <div className="code-chrome flex items-center justify-between px-3.5 py-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="terminal-dot bg-red-400/70" />
+                  <span className="terminal-dot bg-yellow-400/70" />
+                  <span className="terminal-dot bg-emerald-400/70" />
+                </div>
+                <span className="font-mono text-[9px] text-slate-600">
+                  skill-{String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="font-mono text-[9px] text-emerald-400/80">
+                  ✓
+                </span>
+              </div>
+
+              <div className="flex flex-1 flex-col items-center justify-center p-6">
+                <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-xl border border-white/10 bg-white/90 p-3 shadow-inner transition duration-500 group-hover:border-cyan-400/30">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={skill.img}
+                    alt={skill.name}
+                    className="h-full w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+                <p className="text-center font-mono text-sm font-semibold text-slate-200">
+                  {skill.name}
+                </p>
+                <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.18em] text-slate-600">
+                  import {"{ module }"}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </div>
   );
 };

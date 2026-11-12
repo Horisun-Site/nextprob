@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  /* --foreground: #171717; */
+  --background: #05070d;
+  --foreground: #dbeafe;
+  --genesis-cyan: #22d3ee;
+  --genesis-green: #4ade80;
+  --genesis-violet: #a78bfa;
 }
 
 @theme inline {
@@ -12,19 +15,128 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* --background: #0a0a0a; */
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
+::selection {
+  background: rgba(34, 211, 238, 0.32);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #164e63, #312e81);
+  border-radius: 999px;
+  border: 2px solid #05070d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #22d3ee, #8b5cf6);
+}
+
+/* ── Code-interface surfaces ─────────────────────────────────────────────── */
+
+.code-grid {
+  background-image:
+    linear-gradient(to right, rgba(34, 211, 238, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34, 211, 238, 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.4) 65%, transparent 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.4) 65%, transparent 100%);
+}
+
+.scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+.code-panel {
+  background: linear-gradient(180deg, rgba(12, 19, 36, 0.94), rgba(5, 7, 13, 0.9));
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  box-shadow:
+    0 0 0 1px rgba(2, 6, 23, 0.7),
+    0 24px 80px rgba(2, 6, 23, 0.5),
+    inset 0 1px 0 rgba(103, 232, 249, 0.06);
+  backdrop-filter: blur(14px);
+}
+
+.code-chrome {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(8, 13, 25, 0.9));
+  border-bottom: 1px solid rgba(34, 211, 238, 0.12);
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.glow-text {
+  text-shadow:
+    0 0 24px rgba(34, 211, 238, 0.45),
+    0 0 64px rgba(139, 92, 246, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(110deg, #67e8f9 0%, #a5b4fc 45%, #c4b5fd 70%, #4ade80 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.code-underline {
+  position: relative;
+}
+
+.code-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #22d3ee, #a78bfa);
+  transition: width 0.35s ease;
+}
+
+.code-underline:hover::after {
+  width: 100%;
+}
+
+.glass-line {
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.4), transparent);
+  height: 1px;
+}
+
+/* ── Existing animations (kept) ──────────────────────────────────────────── */
 
 @keyframes fadeSlide {
   0% { opacity: 0; transform: translateY(-10px); }
@@ -51,4 +163,127 @@ body {
 
 .animate-cardFadeUp {
   animation: cardFadeUp 0.9s ease-out forwards;
+}
+
+/* ── New code-interface animations ───────────────────────────────────────── */
+
+@keyframes blink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.08); }
+}
+
+@keyframes scanDown {
+  0% { transform: translateY(-100%); opacity: 0; }
+  15% { opacity: 0.55; }
+  85% { opacity: 0.55; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.55; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes riseIn {
+  0% { opacity: 0; transform: translateY(26px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes borderFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  75% { transform: rotate(-2deg); }
+}
+
+.animate-blink {
+  animation: blink 1.05s step-end infinite;
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-float {
+  animation: floatY 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glowPulse 5s ease-in-out infinite;
+}
+
+.animate-scan {
+  animation: scanDown 7s linear infinite;
+}
+
+.animate-flicker {
+  animation: flicker 6s linear infinite;
+}
+
+.animate-rise {
+  animation: riseIn 0.8s ease-out both;
+}
+
+.animate-wiggle {
+  animation: wiggle 4s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #94a3b8 20%, #ffffff 50%, #94a3b8 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+.border-flow {
+  background-image: linear-gradient(90deg, #22d3ee, #a78bfa, #4ade80, #22d3ee);
+  background-size: 300% 300%;
+  animation: borderFlow 6s ease infinite;
+}
+
+/* ── Accessibility ───────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
